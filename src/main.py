@@ -63,7 +63,7 @@ def main():
         else:
             root.destroy()
     except Exception:
-        with open(LOG_ERROR, "w", encoding="utf-8") as f:
+        with open(LOG_ERROR, "a", encoding="utf-8") as f:
             traceback.print_exc(file=f)
 
 
