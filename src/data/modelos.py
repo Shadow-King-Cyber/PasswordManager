@@ -70,6 +70,8 @@ class Cuenta:
     def dias_antiguedad(self) -> int:
         try:
             mod = datetime.fromisoformat(self.fecha_modificacion)
+            if mod.tzinfo is None:
+                mod = mod.replace(tzinfo=timezone.utc)
             return (datetime.now(timezone.utc) - mod).days
         except (ValueError, TypeError):
             return 0
